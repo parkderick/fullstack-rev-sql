@@ -21,7 +21,7 @@ const helper = {
     })
   },
   postProductsHelper: (req, callback) => {
-    db.query(`INSERT into products (item, min_cost, curr_bid, ends_in, image) VALUES ("${req.body.item}", "${req.body.min_cost}", "${req.body.curr_bid}", "${req.body.ends_in}", "${req.body.image}");`, (err, result) => {
+    db.query(`INSERT into products (item, min_cost, curr_bid, ends_in) VALUES ("${req.body.item}", "${req.body.min_cost}", "${req.body.curr_bid}", "${req.body.ends_in}");`, (err, result) => {
       if (err) {
         callback(err)
       } else {

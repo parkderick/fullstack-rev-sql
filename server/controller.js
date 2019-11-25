@@ -26,7 +26,7 @@ const controller = {
   post: (req, res) => {
     helper.postProductsHelper(req, (err, result) => {
       if (err) {
-        res.status(404).send(`ERROR with post request, ${err}`)
+        res.status(404).send(err)
       } else {
         res.status(200).send('Success with post request')
       }

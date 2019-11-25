@@ -2,6 +2,7 @@ import React from 'react';
 import ProductList from './ProductList';
 import ProductViewer from './ProductViewer';
 import Search from './Search';
+import Add from './Add'
 
 import axios from 'axios';
 
@@ -62,33 +63,59 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div>
+    if (this.state.login) {
+      return (
         <div>
-          <h1>EBID</h1>
-          <h3>The jankiest ebay rip-off you'll ever see (probably)</h3>
+          <div>
+            <h1>EBID</h1>
+            <h3>The jankiest ebay rip-off you'll ever see (probably)</h3>
+          </div>
+          <nav className="navbar">
+            <div className="col-md-6 offset-md-3">
+              <Search />
+            </div>
+            <div>
+              <Add getProducts={this.getProducts}/>
+            </div>
+          </nav>
+            <div className="row main-container">
+              <div className="col-md-7 product-viewer-container">
+                <ProductViewer current={this.state.current} getProducts={this.getProducts} changeCurrentProduct={this.changeCurrentProduct}/>
+              </div>
+              <div className="col-md-5 product-list-container">
+                <ProductList products={this.state.products} changeCurrentProduct={this.changeCurrentProduct}/>
+            </div>
+          </div>
         </div>
-        
+      )
+    } else {
+      return (
         <div>
-          Username <input placeholder="Enter Username Here" name="username" onChange={this.handleForm}></input>
-          Password <input placeholder="Enter Password Here" name="password" onChange={this.handleForm}></input>
-          <button onClick={this.confirmUser}>Submit</button>
+          <div>
+            <h1>EBID</h1>
+            <h3>The jankiest ebay rip-off you'll ever see (probably)</h3>
+          </div>
+          <div>
+            Username <input placeholder="Enter Username Here" name="username" onChange={this.handleForm}></input>
+            Password <input placeholder="Enter Password Here" name="password" onChange={this.handleForm}></input>
+            <button onClick={this.confirmUser}>Submit</button>
+          </div>
+          <nav className="navbar">
+            <div className="col-md-6 offset-md-3">
+              <Search />
+            </div>
+          </nav>
+          <div className="row main-container">
+            <div className="col-md-7 product-viewer-container">
+              <ProductViewer current={this.state.current} getProducts={this.getProducts} changeCurrentProduct={this.changeCurrentProduct}/>
+            </div>
+            <div className="col-md-5 product-list-container">
+              <ProductList products={this.state.products} changeCurrentProduct={this.changeCurrentProduct}/>
+            </div>
+          </div>
         </div>
-        <nav className="navbar">
-          <div className="col-md-6 offset-md-3">
-            <Search />
-          </div>
-        </nav>
-        <div className="row main-container">
-          <div className="col-md-7 product-viewer-container">
-            <ProductViewer current={this.state.current} getProducts={this.getProducts} changeCurrentProduct={this.changeCurrentProduct}/>
-          </div>
-          <div className="col-md-5 product-list-container">
-            <ProductList products={this.state.products} changeCurrentProduct={this.changeCurrentProduct}/>
-          </div>
-        </div>
-      </div>
-    )
+      )
+    }
   }
 }
 
