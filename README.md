@@ -55,15 +55,15 @@ Being the amazing engineer you are, you break down the provided specs into the f
   (Do not worry if your classnames do not necessary match the stylesheet's. As previously stated, make the app functional. Only make it look better if you finish everything before your own set time-limit)
 
     - Ensure the following functionalities:
-      - [ ] on page load - make sure that 10 products render on the side, and one product renders in the product view.
-      - [ ] view product - implement a click function that allows the client to click and view the details for each product
-      - [ ] bidding - make sure a user can bid on a product so that their current bid updates it
+      - [X] on page load - make sure that 10 products render on the side, and one product renders in the product view.
+      - [X] view product - implement a click function that allows the client to click and view the details for each product
+      - [X] bidding - make sure a user can bid on a product so that their current bid updates it
   
   6. Let's go a few steps further. Refactor your code to implement the following
   
     - [ ] search - implement a search functionality so that a product you search for is rendered into the product view (you may take creative liberties for how your search algorithm works. hint: filter?)
-    - [ ] add another schema for users that holds username, password as columns (remember what you've learned, this is NOT secure)
-    - [ ] using the already existing product generator as reference, write a random user generator to generate at least 3 users
+    - [X] add another schema for users that holds username, password as columns (remember what you've learned, this is NOT secure)
+    - [X] using the already existing product generator as reference, write a random user generator to generate at least 3 users
     - [ ] log-in form - have a simple log-in form in the top that the client can use to sign-in 
       - once signed in, a button should conditionally render. on click, a user should be able to add a new product to the database
       - exercise your freedom and implement a new product form in whatever way you see fit. 

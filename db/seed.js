@@ -1,6 +1,6 @@
 
 // const Products = require('./models.js');
-// const db = require('./index.js');
+const db = require('./index.js');
 
 // Fill in the definition of insertMockData so that when 
 // this file is run in the terminal with `node seed.js`, 
@@ -31,9 +31,22 @@ const createProducts = () => {
   return productsArr
 }
 
+// const insertMockData = function() {
+//   var seed = createProducts();
+//   seed.forEach(product => {
+//     db.query(`INSERT into products (item, min_cost, curr_bid, ends_in, image) VALUES ("${product.item}", "${product.min_cost}", "${product.curr_bid}", "${product.ends_in}", "${product.image}");`)
+//   })
+// };
+
 const insertMockData = function() {
-  // Complete me please
+  console.log('it hit')
+  var seed = createProducts();
+  seed.forEach(product => {
+    db.query(`INSERT into users (username, password) VALUES ("${product.item}", "${product.min_cost}");`)
+  })
 };
+
+insertMockData()
 
 // NOTE: DO NOT invoke this function as part of your
 // server code - it is meant to only be run once so that
